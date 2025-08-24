@@ -19,11 +19,14 @@ public class LoginServlet extends HttpServlet {
 		UserDao userDao = new UserDao();
 		boolean isUserExist = userDao.checkUser(email, password);
 		if(isUserExist) {
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("employees");
+//			RequestDispatcher requestDispatcher = request.getRequestDispatcher("employees");
+//			requestDispatcher.forward(request, response);
+			response.sendRedirect("employees");
+		}else {
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
 			requestDispatcher.forward(request, response);
 		}
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-		requestDispatcher.forward(request, response);
+		
 		
 	}
 

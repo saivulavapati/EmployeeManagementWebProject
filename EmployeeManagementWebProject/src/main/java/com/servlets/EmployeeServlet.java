@@ -15,6 +15,11 @@ import com.model.Employee;
 @WebServlet("/employees")
 public class EmployeeServlet extends HttpServlet {
 	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req, resp);
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EmployeeDao empDao = new EmployeeDao();
 		List<Employee> employees = empDao.getEmployees();

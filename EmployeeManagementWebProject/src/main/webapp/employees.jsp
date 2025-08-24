@@ -16,6 +16,8 @@
 		<th>Email</th>
 		<th>Department</th>
 		<th>age</th>
+		<th></th>
+		<th></th>
 	</tr>
 	<%List<Employee> employees = (List<Employee>)request.getAttribute("employees"); 
 	  for(Employee emp: employees){
@@ -26,6 +28,8 @@
 		<td><%=emp.getEmail() %></td>
 		<td><%=emp.getDepartment() %></td>
 		<td><%=emp.getAge() %></td>
+		<td><a href="delete?id=<%=emp.getId()%>">Delete</a></td>
+		<td><a href="update.jsp?id=<%=emp.getId()%>">Update</a></td>
 	</tr>
 	<%} %>
 	</table>
